@@ -1,0 +1,175 @@
+h2 {
+  font-size: 1.6em;
+  font-weight: bold; 
+}
+h3 {
+  font-size: 1.4em;
+  font-weight: bold; 
+}
+h4 {
+  font-size: 1.2em;
+  font-weight: bold; 
+}
+/*higcharts*/
+.highcharts-exporting-group {
+  display: none;
+}
+.highcharts-credits {
+  display: none;
+}
+#chart {
+  margin-bottom: 200px;
+}
+/*higchartsここまで*/
+/*家計簿*/
+div.past_exp_flex{
+  display: flex;
+  justify-content: space-between;
+}
+h3.past_exp_flex{
+  margin-top: 10px;
+}
+.slide_content{
+  padding-top: 100px;
+  padding-bottom: 100px;
+  z-index: 9998;  
+  position: fixed;
+  background-color: white;
+  width: 90%;
+  height: 100%;
+}
+/*家計簿ここまで*/
+/*カレンダー*/
+.schedule_money {
+  display: flex;
+  justify-content: space-between;
+}
+.selected {
+  color: red;
+}
+.display_none {
+  display: none;
+}
+.modal-trigger:hover{
+  cursor: pointer;
+  background-color: lightgrey;
+}
+.spending {
+  font-size: 70%;
+}
+tr.calendar {
+  height: 90px;
+}
+th.calendar {
+  text-align: center;
+}
+td.calendar {
+  padding: 0;
+  width: 14.2%;
+  text-align: center;
+  vertical-align: top;/*テキスト上揃え*/
+}
+p.calendar {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+/*当日の色変更*/
+.today {
+  background: grey;
+}
+/*土日の色変更*/
+th.calendar:nth-of-type(6), td.calendar:nth-of-type(6) {
+  color: blue;
+}
+th.calendar:nth-of-type(7), td.calendar:nth-of-type(7) {
+  color: red;
+}
+/*カレンダーここまで*/
+/*欲しいものリスト*/
+table th.date {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.ListName_flex {
+  display: flex;
+}
+div.name {
+  font-size: 1.2em; 
+  font-weight: bold; 
+  margin-left: 10px;
+}
+div.lined_name {
+  font-size: 1.2em; 
+  font-weight: bold; 
+  margin-left: 10px;
+  text-decoration: line-through;
+}
+/*欲しいものリストここまで*/
+/*余白作成*/
+hr.make_bottom {
+  margin-top: 60px;
+}
+/*記入ボタン*/
+.write_btn_div{
+  display: flex;
+  justify-content: flex-end;
+}
+.write_btn {
+  position: fixed;
+  bottom: 70px;
+  z-index: 9997;
+  height: 50px;
+  width: 50px;
+  padding-top: 5px;
+}
+/*削除ボタン*/
+button.delete {
+  width: 30px;
+  height: 30px;
+  background-color: darkred;
+  border: darkred;
+  border-radius: 50%;
+  box-shadow: 0 1px 1px #666666;
+}
+button:hover {
+  cursor: pointer;
+}
+div.deleteButton {
+  display: flex;
+  justify-content: flex-end;
+}
+/*削除ボタンここまで*/
+footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 9998;
+  background-color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  /*margin-left: -8px; /*なぜか左に隙間ができたので*/
+  box-shadow:  0px -1px 2px #666666;
+}
+/*フッターアイコン*/
+div.footer_icons {
+  display: flex;
+  justify-content: space-around;
+  color: black;
+}
+div.footer_icons a{
+  color: grey;
+  text-decoration: none;
+}
+div.icon_to_center {
+  text-align: center;
+}
+i{
+  font-size: 1.4em;
+}
+div.font{
+  font-size: 70%;
+}
+footer div.selected {
+  color: red;
+  border-bottom: solid 2px red;
+}
