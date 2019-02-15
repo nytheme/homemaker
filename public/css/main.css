@@ -79,10 +79,16 @@ p.calendar {
   background: grey;
 }
 /*土日の色変更*/
-th.calendar:nth-of-type(6), td.calendar:nth-of-type(6) {
+th.calendar:nth-of-type(6) /*, td.calendar:nth-of-type(6)*/ {
   color: blue;
 }
-th.calendar:nth-of-type(7), td.calendar:nth-of-type(7) {
+th.calendar:nth-of-type(7) /*, td.calendar:nth-of-type(7)*/ {
+  color: red;
+}
+.youbi_6 {
+  color: blue;
+}
+.youbi_0 {
   color: red;
 }
 /*カレンダーここまで*/
