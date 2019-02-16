@@ -73,7 +73,6 @@
                                     <?php   
                                         //$spending = number_format($calendar_expense[0]);
                                         $thisDaySum = number_format($this_day_sum);
-                                        echo $ym."-".$d;
                                     ?>
                                     <a href="calendar_to_exp?day={{$ym."-".$d}}" class='spending'>¥{{ mb_strimwidth( $thisDaySum,  0, 8, "....") }}</a>
                                 </td>
@@ -82,7 +81,6 @@
                                     <p class='calendar youbi_{{ $week_number }}'>{{ $d }}</p>
                                     <?php
                                         $thisDaySum = number_format($this_day_sum);
-                                        echo $ym."-".$d;
                                     ?>
                                     <a href="calendar_to_exp?day={{$ym."-".$d}}" class='spending'>¥{{ mb_strimwidth( $thisDaySum, 0, 8,"....") }}</a>
                                 </td>     
