@@ -107,7 +107,7 @@ class ExpensesController extends Controller
         return redirect()->back();
     }
     
-        public function indexCalendar()
+    public function indexCalendar()
     {   
         $today = date("Y/m/d");
         $this_month_1st = date("Y/m/01");
@@ -123,5 +123,23 @@ class ExpensesController extends Controller
         ];
         
         return view('calendar', $data);
+    }
+    
+    public function indexCalendar_to_exp()
+    {   
+        $today = date("Y/m/d");
+        $this_month_1st = date("Y/m/01");
+        $this_month_last = date("Y/m/t");
+        $this_month_sum = Expense::where('user_id', \Auth::id())->whereBetween('day', [$this_month_1st, $this_month_last])->sum("money");
+        $expenses = Expense::where('user_id', \Auth::id())->whereBetween('day', [$this_month_1st, $this_month_last])->orderBy('day', 'desc')->get();
+        $users = User::where('id', \Auth::id())->get();
+        
+        $data = [
+            'expenses' => $expenses, 
+            'users' => $users,
+            'this_month_sum' => $this_month_sum,
+        ];
+        
+        return view('calendar_to_exp', $data);
     }
 }

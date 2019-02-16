@@ -43,6 +43,7 @@ Route::group(['middleware' => ['auth']], function () {
 //カレンダーページ
 Route::group(['middleware' => ['auth']], function () {
     Route::get('calendar', 'ExpensesController@indexCalendar')->name('calendar');
+    Route::get('calendar_to_exp', 'ExpensesController@indexCalendar_to_exp')->name('calendar_to_exp');
 });
 //予算等編集ページ
 Route::group(['middleware' => ['auth']], function () {

@@ -20,12 +20,11 @@
             // カレンダーのタイトルを作成　例）2017年7月
             $html_title = date('Y年n月', $timestamp);
             // 前月・次月の年月を取得
-            // 方法１：mktimeを使う mktime(hour,minute,second,month,day,year)
+            // mktimeを使う mktime(hour,minute,second,month,day,year)
             $prev = date('Y-m', mktime(0, 0, 0, date('m', $timestamp)-1, 1, date('Y', $timestamp)));
             $next = date('Y-m', mktime(0, 0, 0, date('m', $timestamp)+1, 1, date('Y', $timestamp)));
             $y = substr($ym, 0, 4);//date('Y');
             $m = substr($ym, 5, 2);//date('m');
-            //echo $prev."<br>".$ym."<br>".$next."<br>";
         ?>
         <div class="schedule_money">
             <!--<p><i class="far fa-calendar schedule_select selected"></i></p>-->
@@ -74,28 +73,28 @@
                                     <?php   
                                         //$spending = number_format($calendar_expense[0]);
                                         $thisDaySum = number_format($this_day_sum);
+                                        echo $ym."-".$d;
                                     ?>
-                                    <a href='#' class='spending'>¥{{ mb_strimwidth( $thisDaySum,  0, 8, "....") }}</a>
+                                    <a href="calendar_to_exp?day={{$ym."-".$d}}" class='spending'>¥{{ mb_strimwidth( $thisDaySum,  0, 8, "....") }}</a>
                                 </td>
                             @else
                                 <td class='calendar'>
                                     <p class='calendar youbi_{{ $week_number }}'>{{ $d }}</p>
                                     <?php
                                         $thisDaySum = number_format($this_day_sum);
+                                        echo $ym."-".$d;
                                     ?>
-                                    <a href='#' class='spending'>¥{{ mb_strimwidth( $thisDaySum, 0, 8,"....") }}</a>
+                                    <a href="calendar_to_exp?day={{$ym."-".$d}}" class='spending'>¥{{ mb_strimwidth( $thisDaySum, 0, 8,"....") }}</a>
                                 </td>     
                             @endif
                         @else 
                             @if($today == $date)
                                 <td class='calendar'>
                                     <p class='today calendar youbi_{{ $week_number }}'>{{ $d }}</p>
-                                    -
                                 </td>
                             @else 
                                 <td class='calendar'>
                                     <p class='calendar youbi_{{ $week_number }}'>{{ $d }}</p>
-                                    -
                                 </td>
                             @endif
                         @endif
