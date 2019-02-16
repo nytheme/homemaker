@@ -51,7 +51,7 @@
                         @foreach($categories as $category)
                             <tr>
                                 <td style="width: 20%;">{{ $category }}</td><td>{{ $names[$i] }}</td><td style="text-align: right; width: 30%;">¥{{ number_format($moneys[$i]) }}</td>
-                                {!! Form::open(['route' => ['expenses.destroy', $ids[0]], 'method' => 'delete']) !!}
+                                {!! Form::open(['route' => ['expenses.destroy', $ids[$i]], 'method' => 'delete']) !!}
                                     <td style="text-align: right; width: 12%;"><button type='submit' class='btn-flat' style="padding-left: 0;"><i class='far fa-trash-alt' style='font-size: 1.3em; color: grey'></i></button></td>
                                 {!! Form::close() !!}
                             </tr>
