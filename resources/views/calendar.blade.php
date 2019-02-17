@@ -47,13 +47,11 @@
                         $last_day = date('t', mktime(0, 0, 0, $m, 0, $y));//前月末日取得
                         $wd2 = -$wd1;
                     ?>
-                    
                     <!--その数だけ空白を表示-->
                     @for ($i = 2; $i <= $wd1; $i++) 
                         <td class='calendar' style="color: grey">{{ $last_day+2 + $wd2 }}</td>
                         <?php $wd2 ++; ?>
                     @endfor
-                    
                     <!--カレンダー作成-->
                     @while (checkdate($m, $d, $y))
                         <?php
@@ -61,8 +59,6 @@
                             $day = sprintf('%02d', $d);//1桁の数字を二桁表示
                             $day_for_expression = $y.'-'.$m.'-'.$day;//検索用の当日日付表示
                             //DBから該当データを呼び出すSQL文
-                            //$calendar_expenses = \App\Expense::where('user_id', \Auth::id())->where('day', $day_for_expression)->get()->toArray();
-                            //$calendar_expense = array_column( $calendar_expenses, 'money' );
                             $this_day_sum = \App\Expense::where('user_id', \Auth::id())->where('day', $day_for_expression)->sum('money');
                             $week_number = date('w', mktime(0, 0, 0, $m, $d, $y));
                         ?>   
@@ -71,7 +67,6 @@
                                 <td class='calendar'>
                                     <p class='today calendar youbi_{{ $week_number }}'>{{ $d }}</p>
                                     <?php   
-                                        //$spending = number_format($calendar_expense[0]);
                                         $thisDaySum = number_format($this_day_sum);
                                     ?>
                                     <a href="calendar_to_exp?day={{$ym."-".$d}}" class='spending'>¥{{ mb_strimwidth( $thisDaySum,  0, 8, "....") }}</a>

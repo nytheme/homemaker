@@ -12,7 +12,7 @@
             $w = (int)$datetime->format('w');
         ?>
         <!--日にち-->
-        {{ $today_without_year }}({{ $week[$w] }})
+        <h5>{{ $today_without_year }}({{ $week[$w] }})</h5>
         
         @foreach ($users as $user)
             <h3>{{ Auth::user()->name }}</h3>

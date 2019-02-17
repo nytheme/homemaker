@@ -10,6 +10,10 @@ h4 {
   font-size: 1.2em;
   font-weight: bold; 
 }
+h5 {
+  font-size: 1.0em;
+  font-weight: bold; 
+}
 /*higcharts*/
 .highcharts-exporting-group {
   display: none;
@@ -30,14 +34,19 @@ h3.past_exp_flex{
   margin-top: 10px;
 }
 .slide_content{
-  margin-top: -30px;
-  padding-top: 20px;
-  padding-bottom: 100px;
-  z-index: 9998;  
-  position: fixed;
-  background-color: white;
-  width: 90%;
-  height: 100%;
+    padding-top: 20px;
+    padding-bottom: 100px;
+    z-index: 9998;  
+    position: fixed;
+    background-color: white;
+    width: 70%;
+    height: 100%;
+  }
+@media(max-width: 600px){
+  .slide_content{
+    margin-top: -30px;
+    width: 90%;
+  }
 }
 /*家計簿ここまで*/
 /*カレンダー*/
@@ -115,6 +124,7 @@ div.lined_name {
 /*余白作成*/
 hr.make_bottom {
   margin-top: 60px;
+  border: solid 1px white;
 }
 /*記入ボタン*/
 .write_btn_div{

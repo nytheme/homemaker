@@ -58,11 +58,12 @@
         <?php
             $y = date('Y');
             $m = date('m');
+            $n = date('n');
             $wd1 = date("w", mktime(0, 0, 0, $m, 1, $y)); // 1日の曜日を取得
             $d = 1;
             $today = date('d');
         ?>
-        <h3>{{ $y }}年{{ $m }}月の家計簿</h3>
+        <h3>{{ $y }}年{{ $n }}月の家計簿</h3>
         <h3 class="past_exp_flex">支出合計 ¥{{ number_format($this_month_sum) }}</h3>
             
         <table>

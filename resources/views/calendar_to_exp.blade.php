@@ -3,7 +3,6 @@
 @section('content')
 
     <div class="container">
-        
         <?php
             $y = date('Y');
             $m = date('m');
@@ -12,21 +11,17 @@
             $today = date('d');
             $day = $_GET['day'] ;
             $this_day_sum = \App\Expense::where('user_id', \Auth::id())->where('day', $day)->sum('money');
+        
+            $this_month_1st = date("Y/m/01");
+            $this_month_last = date("Y/m/t");
+            $this_month = date("Y-m-");
+            $this_month_ja = date("Y年n月");
+            $last_d = date('t');
+        
+            $expense_days = \App\Expense::where('user_id', \Auth::id())->where('day', $day)->orderBy('day', 'desc')->get()->toArray();
+            $array_expense_days = array_column($expense_days, 'day');
         ?>
-        <h3>{{ $day }}の支出明細</h3>
-        <h3>支出合計 ¥{{ number_format($this_day_sum) }}</h3>
-        <table>
-            <?php
-                $this_month_1st = date("Y/m/01");
-                $this_month_last = date("Y/m/t");
-                $this_month = date("Y-m-");
-                $this_month_ja = date("Y年n月");
-                $last_d = date('t');
-                $d = 1;
-            
-                $expense_days = \App\Expense::where('user_id', \Auth::id())->where('day', $day)->orderBy('day', 'desc')->get()->toArray();
-                $array_expense_days = array_column($expense_days, 'day');
-            ?> 
+        <table> 
             @for($last_d; $last_d >= $d; $last_d--)
                 @foreach($array_expense_days as $array_expense_day)
                     @if($this_month.sprintf('%02d',$last_d) == $array_expense_day)
@@ -35,11 +30,6 @@
                             $datetime = new DateTime($this_month.sprintf('%02d',$last_d));
                             $week = array("日", "月", "火", "水", "木", "金", "土");
                             $w = (int)$datetime->format('w');
-                        ?>   
-                        <tr style="background-color: lightgrey;">
-                            <th class="date" colspan="4">{{ $this_month_ja.$last_d }}日({{$week[$w]}})</th>
-                        </tr>
-                        <?php  
                             //その日の出費明細を配列にする
                             $calendar_expenses = \App\Expense::where('user_id', \Auth::id())->where('day', $this_month.sprintf('%02d',$last_d))->get()->toArray();
                             $categories = array_column($calendar_expenses, 'category' );
@@ -47,7 +37,10 @@
                             $moneys = array_column($calendar_expenses, 'money' );
                             $ids = array_column($calendar_expenses, 'id' );
                             $i = 0;
-                        ?>    
+                        ?>
+                        <h3>{{ $this_month_ja.$last_d }}日({{$week[$w]}})の支出明細</h3>
+                        <h3>支出合計 ¥{{ number_format($this_day_sum) }}</h3>
+  
                         @foreach($categories as $category)
                             <tr>
                                 <td style="width: 20%;">{{ $category }}</td><td>{{ $names[$i] }}</td><td style="text-align: right; width: 30%;">¥{{ number_format($moneys[$i]) }}</td>

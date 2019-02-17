@@ -4,7 +4,7 @@
 
     <div class="container">
         @foreach ($users as $user)
-            <h2>{{ Auth::user()->name }} 編集画面</h2>
+            <h2>編集ページ</h2>
                 
             @foreach($users as $user)
                 {!! Form::model($user, ['route' => ['edit', $user->id], 'method' => 'post']) !!}
